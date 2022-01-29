@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+    background-color: #FFFFFF;
+}
+
+:root {
+    --primary: #34A853;
+    --primary-dark: #333333;
+    --complementary: #F48221;
+    --background-light: #FFFFFF;
+    --background-color: #F7FDF4;
+    --background-color-shadow: #cae7d2;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bg-light{
+    background-color: var(--background-light) !important;
+}
+
+.text-primary-dark {
+    color: var(--primary-dark);
+}
+
+.text-primary {
+    color: var(--primary)!important;
+}
+
+.cta-font-size{
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+.title-sm-font-size{
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.heading-font-size{
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+}
+
+.title-font-size{
+    font-size: clamp(2rem, 5vw, 3.3rem);
+}
+
+.bg-color{
+    background-color: var(--background-color);
+}
+
+.bg-footer{
+    background-color: #263238;
+    font-weight: bolder;
+}
+
+.btn-primary {
+    background-color: var(--primary)!important;
+    border-color: var(--primary)!important;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark)!important;
+    border-color:  var(--primary-dark)!important;
+}
+
+.btn-secondary {
+    background-color: rgb(202, 202, 202) !important;
+    border-color: rgb(202, 202, 202) !important;
+}
+
+.btn-round{
+    border-radius: 30px;
+}
+
+.link-primary {
+    color: var(--primary);
+
+}
+
+.link-primary:hover {
+    color: var(--primary-dark);
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link.active{
+    color: var(--primary);
+}
+
+
+.menu {
+    display: block;
+    width: 40px;
+    height: 36px;
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: unset !important;
+}
+
+.menu div {
+    position: absolute;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--primary-dark);
+    transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6), width 0.2s ease 0.2s;
+}
+
+.menu input {
+    display: none;
+}
+
+.menu input+div {
+    top: 50%;
+    left: 0;
+    margin: -2px 0 0 0;
+    width: 40px;
+    transform-origin: 50% 50%;
+}
+
+.menu input+div+div {
+    top: 2px;
+    left: 0;
+    width: 20px;
+    transform-origin: 0 50%;
+}
+
+.menu input+div+div+div {
+    bottom: 2px;
+    right: 0;
+    width: 28px;
+    transform-origin: 100% 50%;
+    transform: translate(-12px, 0);
+}
+
+.menu:not(.collapsed) div {
+    transform: rotate(-45deg);
+    transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6) 0.1s;
+}
+
+.menu:not(.collapsed) div+div {
+    width: 19px;
+    transform: translate(6px, 0) rotate(45deg);
+    transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6) 0.1s, width 0.2s ease;
+}
+
+.menu:not(.collapsed) div+div+div {
+    width: 19px;
+    transform: translate(-6px, 0) rotate(45deg);
+    transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6) 0.1s, width 0.2s ease;
+}
+
+.sm-icon{
+    height: 18px;
+}
+
+.sidebar {
+    background-color: white;
+    min-height: 100vh;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.input-error{
+    font-size: 12px;
+    color: #d00e00;
+    text-align: left;
+    margin-top: 3px;
+}
+
+.input-info{
+    font-size: 12px;
+    color: #5f5f5f;
+    text-align: left;
+    margin-top: 3px;
+}
+
+.nav-link:hover{
+    color: var(--primary-dark) !important;
+}
+
+.table-hover tr{
+    cursor: pointer;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.spinner {
+    animation: spin infinite 2s linear;
+
+    /*You can increase or decrease the timer (5s) to 
+     increase or decrease the speed of the spinner*/
+  }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modal{
+    background: rgba(0,0,0,.6);
+}
+
+.img-thumbnail{
+    max-width: 150px;
+    border-radius: 9999px;
+}
+
+.nav-item:hover .nav-link{
+    color: var(--primary) !important;
+}
+
+.nav-fill .nav-item .active{
+    color: var(--primary);
+}
+
+.nav-fill .nav-item .sm-icon{
+    height: 20px;
+}
+
+fieldset {
+    padding: .75rem !important;
+    margin-top: .75rem !important;
+    margin-bottom: .75rem !important;
+    border: 1px solid #eee !important;
+    border-left-width: .25rem !important;
+    border-radius: .30rem !important;
+    border-left-color: var(--color-primary-dark) !important;
+}
+  
+legend {
+    font-size: 1.15rem !important;
+    font-weight: bold !important;
+    color: var(--color-primary-dark)
+}
+
+.text-bold{
+    font-weight: bold !important;
+}
+
+.text-bold-500{
+    font-weight: 500 !important;
+}
+
+.display-inherit{
+    display: inherit;
+}
+
+
+label>span {
+    color: red!important;
+}
+
+#selective-process {
+  font-size: 14px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#selective-process thead tr td{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #34a853;
+    color: white;
+}
+
+#selective-process td, #selective-process th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#selective-process tr:nth-child(even){background-color: #f2f2f2;}
+
+.current-sel-proc {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1e5c2e !important;
+    color: white;
+}
+
+.title-section{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .title-section{
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+    }
+}
+
+.show{
+    display: unset;
+}
+
+.hide{
+    display: none;
+}
+
+.mt-15{
+    margin-top: 15em;
+}

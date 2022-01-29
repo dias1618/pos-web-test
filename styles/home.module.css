@@ -1,0 +1,37 @@
+.homeSection {
+    max-height: max(560px, 70vh);
+    padding: 2rem;
+    background-color: var(--background-color);
+    border-bottom-left-radius: 120px;
+    border-bottom-right-radius: 120px;
+}
+
+.headerBackground {
+    background-color: var(--background-color);
+}
+
+.sectionPadding {
+    padding: 1.8rem;
+}
+
+@media (min-width: 768px) {
+    .sectionPadding {
+        padding: 5rem;
+    }
+}
+
+.login {
+    color: #34a853;
+}
+
+.cardImg {
+    width: 100%;
+    height: auto;
+    max-width: 180px !important;
+    margin: auto;
+}
+
+.newsSection {
+    background-color: var(--background-color);
+    border-top-right-radius: 120px;
+}

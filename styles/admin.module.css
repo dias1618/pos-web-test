@@ -1,0 +1,47 @@
+.main {
+    background-color: #FCFCFC;
+    min-height: 100vh;
+    position: relative;
+
+}
+
+.icon{
+    padding: 1rem;
+}
+
+.sidebarLabel{
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.content {
+    position: relative;
+    height: 95%;
+    top: 10px;
+    background: #FFFFFF;
+    border-radius: 40px;
+}
+
+.navLink{
+    padding: 1rem .2rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .navLink {
+        padding: .5rem 1rem;
+        text-align: left;
+    }
+}
+
+.etapaCol{
+    min-width: 360px;
+}
+
+.inputCol{
+    min-width: 200px;
+}
+
+.currentUser{
+    font-weight: 500;
+}

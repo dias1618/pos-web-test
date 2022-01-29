@@ -1,0 +1,81 @@
+ .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+
+  
+  .formSignin {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: var(--background-light);
+    border-radius: 1rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 2rem 3rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+    .formSignin {    
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding: 2rem 3rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .buttonSignin{
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  .buttonForgotPassword{
+    margin-top:1rem;
+    font-size: 13px;
+    color: var(--primary);
+  }
+
+  .buttonForgotPassword:hover{
+    color: var(--primary-dark);
+  }
+
+  .main{
+    background-color: var(--background-color);
+    min-height: calc(100vh - 94px);
+    display: flex;
+    background-image: url("/images/home/login.svg");
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: right;
+  }
