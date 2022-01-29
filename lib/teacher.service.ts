@@ -9,6 +9,7 @@ export class TeacherService {
     private repository:Repository;
 
     constructor(){
+        console.log('GenerateFactory.getInstance() = ', GenerateFactory.getInstance())
         this.repository = GenerateFactory.getInstance().repository();
     }
 
