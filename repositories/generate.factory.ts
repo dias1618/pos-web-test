@@ -21,7 +21,17 @@ export class GenerateFactory{
     private repositoryFactory:RepositoryFactory;
 
     constructor(){
-        this.repositoryFactory = new FirebaseRepositoryFactory();
+        switch(process.env.REPOSITORY){
+            case 'AMAZON':
+                this.repositoryFactory = new AmazonRepositoryFactory();
+                break;
+            case 'FIREBASE':
+                this.repositoryFactory = new FirebaseRepositoryFactory();
+                break;
+            case 'MONGODB':
+                this.repositoryFactory = new MongoDbRepositoryFactory();
+                break;
+        }
     }
 
     repository():Repository{
