@@ -53,9 +53,12 @@ export default function Login(props: InferGetServerSidePropsType<typeof getServe
     };
 
     const redirectAfterLogin = (user: User) => {
+        console.log('user = ', user)
         if (user.type === UserType.STUDENT) {
+            console.log('student')
             router.push("/student");
         } else {
+            console.log('admin')
             router.push("/admin");
         }
     }
