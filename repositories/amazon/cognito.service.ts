@@ -84,6 +84,7 @@ export class CognitoUtil {
     }
 
     async getAccessToken(): Promise<null|CognitoAccessToken> {
+        console.log('this.getCurrentUser() = ', this.getCurrentUser())
         if (this.getCurrentUser() != null){
             let self = this;
             return new Promise(function (resolve, reject){
