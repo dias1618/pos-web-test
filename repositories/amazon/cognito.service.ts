@@ -89,9 +89,11 @@ export class CognitoUtil {
             return new Promise(function (resolve, reject){
                 self.getCurrentUser().getSession(function (err, session) {
                     if (err) {
+                        console.log('err cognito service = ', err )
                         reject(null);
                     }
                     else {
+                        console.log('session cognito servce = ', session);
                         if (session.isValid()) {
                             resolve(session.getIdToken());
                         }
