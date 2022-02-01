@@ -37,7 +37,7 @@ export default function Permission() {
             return await buildReturn({ userType: user.type as UserType });
         
         } catch (err) {
-            return redirectTo("/login");
+            //return redirectTo("/login");
         }
     }
 
@@ -54,7 +54,7 @@ export default function Permission() {
               redirect = "/admin";
             }
               
-            return redirectTo(redirect);
+            //return redirectTo(redirect);
       
           } catch (err) {
             return {
@@ -75,7 +75,7 @@ export default function Permission() {
             return redirectTo("/error/not-authorized");        
         } catch (err) {
             console.log('err = ', err)
-            return redirectTo("/login");
+            //return redirectTo("/login");
         }
     }
 
