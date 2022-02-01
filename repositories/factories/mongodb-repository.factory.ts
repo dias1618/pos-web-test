@@ -7,6 +7,7 @@ import { MongoDbTreatErrorRepository } from "../mongodb/mongodb.treat-error.repo
 import { MongoDbAuthRepository } from "../mongodb/mongodb.auth.repository";
 import { FirebaseStorageRepository } from "../firebase/firebase.storage-repository";
 import { RepositoryFactory } from "./repository.factory";
+import { FilemanagerStorageRepository } from "../filemanager/filemanager.storage-repository";
 
 export class MongoDbRepositoryFactory implements RepositoryFactory{
 
@@ -19,8 +20,7 @@ export class MongoDbRepositoryFactory implements RepositoryFactory{
         this._repository = new MongoDbRepository();
         this._authRepository = new MongoDbAuthRepository(this._repository);
         this._treatErrorRepository = new MongoDbTreatErrorRepository();
-        this._storageRepository = new FirebaseStorageRepository();
-
+        this._storageRepository = new FilemanagerStorageRepository();
     }
 
     repository():Repository{
