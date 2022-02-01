@@ -15,7 +15,9 @@ export default function Permission() {
     const authRepository:AuthRepository = GenerateFactory.getInstance().authRepository();
 
     async function checkToken(ctx: GetServerSidePropsContext){
+        console.log('ctx')
         const token = await cookie.getTokenServer(ctx);
+        console.log('token = ', token)
         await authRepository.verifyIdToken(token);
     }
 
@@ -65,16 +67,11 @@ export default function Permission() {
 
     async function checkPermission(ctx: GetServerSidePropsContext, typesAllowed: String[]) {
         try {
-            console.log('1')
             await checkToken(ctx);
-            console.log('2')
             const user: User =  await getCurrentUser(ctx);   
-            console.log('3')
             if(typesAllowed.includes(user.type as UserType)){
-                console.log('4')
                 return await buildReturnMessage(Message.AUTHORIZED);
             }
-            console.log('5')
         
             return redirectTo("/error/not-authorized");        
         } catch (err) {

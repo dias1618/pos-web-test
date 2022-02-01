@@ -63,8 +63,6 @@ export class AmazonAuthRepository implements AuthRepository{
 
         let cognitoUser = new CognitoUser(userData);
 
-        console.log('signiin cognitoUser = ', cognitoUser);
-
         let self = this;
         return new Promise(function (resolve, reject){
             cognitoUser.authenticateUser(authenticationDetails, {

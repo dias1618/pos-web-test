@@ -45,7 +45,6 @@ export class CognitoUtil {
     }
 
     getCurrentUser() {
-        console.log('this.getUserPool() = ', this.getUserPool())
         return this.getUserPool().getCurrentUser();
     }
 
@@ -85,17 +84,14 @@ export class CognitoUtil {
     }
 
     async getAccessToken(): Promise<null|CognitoAccessToken> {
-        console.log('this.getCurrentUser() = ', this.getCurrentUser())
         if (this.getCurrentUser() != null){
             let self = this;
             return new Promise(function (resolve, reject){
                 self.getCurrentUser().getSession(function (err, session) {
                     if (err) {
-                        console.log('err cognito service = ', err )
                         reject(null);
                     }
                     else {
-                        console.log('session cognito servce = ', session);
                         if (session.isValid()) {
                             resolve(session.getIdToken());
                         }
