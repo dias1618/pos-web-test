@@ -15,14 +15,14 @@ export default function Permission() {
     const authRepository:AuthRepository = GenerateFactory.getInstance().authRepository();
 
     async function checkToken(ctx: GetServerSidePropsContext){
-        console.log('ctx')
         const token = await cookie.getTokenServer(ctx);
-        console.log('token = ', token)
         await authRepository.verifyIdToken(token);
     }
 
     async function getCurrentUser(ctx: GetServerSidePropsContext){
+        console.log('get current user = ', APIRoutes.CURRENT_USER)
         const response = await api.getWithContext(ctx, APIRoutes.CURRENT_USER);  
+        console.log('response = ', response)
         if(!response){
             throw new Error();
         }  
