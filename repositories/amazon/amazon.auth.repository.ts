@@ -126,9 +126,15 @@ export class AmazonAuthRepository implements AuthRepository{
 
     async verifyIdToken(token: string) {
         let accessToken = await this.cognitoUtil.getAccessToken();
-        let payload = accessToken.payload;
         let comparator:Comparator = new Comparator();
-        comparator.add('email', payload.email, ComparatorEnum.EQUAL);
+
+        if(accessToken){
+            let payload = accessToken.payload;
+            comparator.add('email', payload.email, ComparatorEnum.EQUAL);
+        } 
+        else{
+            comparator.add('token', token, ComparatorEnum.EQUAL);
+        }
         
         let users:User[] = await this.repository.find('user', comparator);
 
