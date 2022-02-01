@@ -63,6 +63,7 @@ export class AmazonAuthRepository implements AuthRepository{
 
         let cognitoUser = new CognitoUser(userData);
 
+
         let self = this;
         return new Promise(function (resolve, reject){
             cognitoUser.authenticateUser(authenticationDetails, {
@@ -126,15 +127,9 @@ export class AmazonAuthRepository implements AuthRepository{
 
     async verifyIdToken(token: string) {
         let accessToken = await this.cognitoUtil.getAccessToken();
+        let payload = accessToken.payload;
         let comparator:Comparator = new Comparator();
-
-        if(accessToken){
-            let payload = accessToken.payload;
-            comparator.add('email', payload.email, ComparatorEnum.EQUAL);
-        } 
-        else{
-            comparator.add('token', token, ComparatorEnum.EQUAL);
-        }
+        comparator.add('email', payload.email, ComparatorEnum.EQUAL);
         
         let users:User[] = await this.repository.find('user', comparator);
 
