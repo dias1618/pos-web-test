@@ -50,6 +50,8 @@ export class AmazonAuthRepository implements AuthRepository{
 
     async signIn(user: User): Promise<User | AuthError> {
 
+        console.log('signin--------------------')
+
         let authenticationData = {
             Username: user.email,
             Password: user.password,
@@ -61,25 +63,38 @@ export class AmazonAuthRepository implements AuthRepository{
             Pool: this.cognitoUtil.getUserPool()
         };
 
+        console.log('userData = ', userData)
+
         let cognitoUser = new CognitoUser(userData);
 
+        console.log('cognitoUser = ', cognitoUser)
 
         let self = this;
         return new Promise(function (resolve, reject){
             cognitoUser.authenticateUser(authenticationDetails, {
                 onSuccess: async (result) => {
                     
+                    console.log('sucess result = ', result)
+
                     let comparator:Comparator = new Comparator();
                     comparator.add('email', result.getIdToken().payload.email, ComparatorEnum.EQUAL);
 
+                    console.log('comparator = ', comparator)
+
                     let listUserRegister: User[] = await self.repository.find('user', comparator);
+
+                    console.log('listUserRegister = ', listUserRegister)
 
                     let user = new UserBuilder()
                         .register(listUserRegister[0])
                         .token(result.getAccessToken().getJwtToken())
                     .build();
 
+                    console.log('user = ', user)
+
                     await self.repository.update('user', user);
+
+                    console.log('salvou')
 
                     resolve(user);
                 },
