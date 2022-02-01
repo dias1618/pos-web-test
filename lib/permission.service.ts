@@ -20,9 +20,7 @@ export default function Permission() {
     }
 
     async function getCurrentUser(ctx: GetServerSidePropsContext){
-        console.log('get current user = ', APIRoutes.CURRENT_USER)
         const response = await api.getWithContext(ctx, APIRoutes.CURRENT_USER);  
-        console.log('response = ', response)
         if(!response){
             throw new Error();
         }  
