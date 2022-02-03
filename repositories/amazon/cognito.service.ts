@@ -39,9 +39,14 @@ export class CognitoUtil {
     };
 
     public cognitoCreds: AWS.CognitoIdentityCredentials;
+    private cognitoUserPool:CognitoUserPool;
+
+    constructor(){
+        this.cognitoUserPool = new CognitoUserPool(CognitoUtil._POOL_DATA);
+    }
 
     getUserPool() {
-        return new CognitoUserPool(CognitoUtil._POOL_DATA);
+        return this.cognitoUserPool;
     }
 
     getCurrentUser() {
