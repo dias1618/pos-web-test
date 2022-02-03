@@ -2,7 +2,8 @@ import {
     CognitoAccessToken,
     CognitoIdToken,
     CognitoUserPool,
-    CognitoUserSession
+    CognitoUserSession,
+    CookieStorage
 } from "amazon-cognito-identity-js";
 import * as AWS from "aws-sdk/global";
 import * as CognitoIdentity from "aws-sdk/clients/cognitoidentity";
@@ -35,18 +36,19 @@ export class CognitoUtil {
 
     public static _POOL_DATA = {
         UserPoolId: CognitoUtil._USER_POOL_ID,
-        ClientId: CognitoUtil._CLIENT_ID
+        ClientId: CognitoUtil._CLIENT_ID,
+        Storage: new CookieStorage({
+            domain: 'https://pos-web-test-amazon.vercel.app',
+            secure: true,
+            expires: 10,
+            path: '/'
+        })
     };
 
     public cognitoCreds: AWS.CognitoIdentityCredentials;
-    private cognitoUserPool:CognitoUserPool;
-
-    constructor(){
-        this.cognitoUserPool = new CognitoUserPool(CognitoUtil._POOL_DATA);
-    }
 
     getUserPool() {
-        return this.cognitoUserPool;
+        return new CognitoUserPool(CognitoUtil._POOL_DATA);
     }
 
     getCurrentUser() {
