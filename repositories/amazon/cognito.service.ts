@@ -52,8 +52,6 @@ export class CognitoUtil {
     }
 
     getCurrentUser() {
-        console.log('this.getUserPool() = ', this.getUserPool())
-        console.log('this.getUserPool() = ', this.getUserPool().getCurrentUser())
         return this.getUserPool().getCurrentUser();
     }
 

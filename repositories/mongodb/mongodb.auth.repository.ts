@@ -8,7 +8,6 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { UserBuilder } from "../../builders/user.builder";
 import { AuthErrorBuilder } from "../../builders/auth-error.builder";
-import { GenerateFactory } from "../generate.factory";
 
 const KEY = process.env.JWT_KEY;
 
