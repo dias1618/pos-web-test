@@ -67,13 +67,14 @@ export default function Permission() {
         try {
             await checkToken(ctx);
             const user: User =  await getCurrentUser(ctx);   
+
             if(typesAllowed.includes(user.type as UserType)){
                 return await buildReturnMessage(Message.AUTHORIZED);
             }
         
             return redirectTo("/error/not-authorized");        
         } catch (err) {
-            console.log('err checkPermission = ', err)
+            console.log('err = ', err)
             return redirectTo("/login");
         }
     }

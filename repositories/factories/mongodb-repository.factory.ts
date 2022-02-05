@@ -20,6 +20,7 @@ export class MongoDbRepositoryFactory implements RepositoryFactory{
         this._authRepository = new MongoDbAuthRepository(this._repository);
         this._treatErrorRepository = new MongoDbTreatErrorRepository();
         this._storageRepository = new FilemanagerStorageRepository();
+
     }
 
     repository():Repository{
