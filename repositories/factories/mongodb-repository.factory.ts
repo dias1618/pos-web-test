@@ -5,7 +5,6 @@ import { TreatErrorRepository } from "../treat-error.repository";
 import { MongoDbRepository } from "../mongodb/mongodb.repository";
 import { MongoDbTreatErrorRepository } from "../mongodb/mongodb.treat-error.repository";
 import { MongoDbAuthRepository } from "../mongodb/mongodb.auth.repository";
-import { FirebaseStorageRepository } from "../firebase/firebase.storage-repository";
 import { RepositoryFactory } from "./repository.factory";
 import { FilemanagerStorageRepository } from "../filemanager/filemanager.storage-repository";
 
