@@ -10,10 +10,10 @@ import { RepositoryFactory } from "./repository.factory";
 
 export class FirebaseRepositoryFactory implements RepositoryFactory{
 
-    private _repository:Repository = new FirebaseRepository();
-    private _authRepository:AuthRepository = new FirebaseAuthRepository();
-    private _treatErrorRepository:TreatErrorRepository = new FirebaseTreatErrorRepository();
-    private _storageRepository:StorageRepository = new FirebaseStorageRepository();
+    private _repository:Repository;
+    private _authRepository:AuthRepository;
+    private _treatErrorRepository:TreatErrorRepository;
+    private _storageRepository:StorageRepository;
 
     constructor(){
         this._repository = new FirebaseRepository();
