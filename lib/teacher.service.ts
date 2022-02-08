@@ -30,7 +30,13 @@ export class TeacherService {
     }
 
     async save(teacher: Teacher) {
-        return await this.repository.save("teacher", teacher);
+        console.log('-----------------------------');
+        console.log('TeacherService.save');
+        console.log('inicial: ', new Date());
+        teacher = await this.repository.save("teacher", teacher);
+        console.log('final: ', new Date());
+        console.log('-----------------------------');
+        return teacher;
     }
 
     async update(teacher: Teacher) {
