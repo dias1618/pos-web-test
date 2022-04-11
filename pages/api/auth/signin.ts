@@ -30,12 +30,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             password: password
         }
 
-        console.log('-----------------------------');
-        console.log('AuthService.signIn');
-        console.log('inicial: ', new Date());
         const result: any = await authService.signIn(user);
-        console.log('final: ', new Date());
-        console.log('-----------------------------');
+        
         if(result.error){        
           return res.status(400).json(await treatError.message(result));
         }
